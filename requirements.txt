@@ -5,3 +5,4 @@ langchain-groq
 langgraph
 streamlit
 python-dotenv
+pypdf
