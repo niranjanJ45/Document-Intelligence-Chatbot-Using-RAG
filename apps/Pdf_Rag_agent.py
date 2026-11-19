@@ -58,12 +58,8 @@ def process_document(path):
     @tool
     def retrieve_context(query:str):
         """Retrieve documents relevant to a query from the knowledge base."""
-        context = ""
         docs = vector_db.similarity_search(query=query, k=3)
-        for doc in docs:
-            context = doc.page_content + "\n\n"
-
-        return context
+        return "\n\n".join(doc.page_content for doc in docs)
 
 
     system_prompt = """You are a helpful assistant that answers questions using retrieved context.
